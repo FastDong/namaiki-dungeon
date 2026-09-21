@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../game/game_controller.dart';
+import 'board_grid.dart';
 import 'hud.dart';
+import 'theme.dart';
 
-/// 하단 빌드 패널: 팔레트 4종(이모지+이름+비용), 데모 배치, 웨이브 시작. running 중엔 비활성.
+/// 하단 빌드 패널: 팔레트 4종(벡터 스프라이트+이름+비용), 데모 배치, 웨이브 시작. running 중엔 비활성.
 class BuildPanel extends StatelessWidget {
   const BuildPanel({super.key});
 
@@ -13,13 +15,13 @@ class BuildPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.watch<GameController>();
     final enabled = c.canBuild;
-    final cs = Theme.of(context).colorScheme;
 
     return Container(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
-      decoration: BoxDecoration(
-        color: cs.surfaceContainer,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+      decoration: const BoxDecoration(
+        color: DungeonColors.stone,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        border: Border(top: BorderSide(color: DungeonColors.line)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -56,6 +58,12 @@ class BuildPanel extends StatelessWidget {
                 flex: 2,
                 child: FilledButton.icon(
                   onPressed: enabled ? c.startWave : null,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: DungeonColors.ember,
+                    foregroundColor: DungeonColors.void_,
+                    disabledBackgroundColor: DungeonColors.floor,
+                    disabledForegroundColor: DungeonColors.muted,
+                  ),
                   icon: Icon(c.isRunning ? Icons.hourglass_top : Icons.play_arrow),
                   label: Text(c.isRunning ? '용사 침입 중…' : '웨이브 시작'),
                 ),
@@ -85,44 +93,51 @@ class _PaletteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     final dim = !enabled || !affordable;
-    final fg = dim ? cs.onSurface.withValues(alpha: 0.45) : cs.onSurface;
+    final fg = dim ? DungeonColors.parchment.withValues(alpha: 0.45) : DungeonColors.parchment;
+    final accent = type.isTrap ? DungeonColors.muted : DungeonColors.violet;
 
     return Tooltip(
       message: '${type.korean} · ${type.statLabel} · 마나 ${type.spec.cost}',
-      child: Material(
-        color: selected ? cs.primaryContainer : cs.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(10),
-        child: InkWell(
-          key: ValueKey('palette_${type.name}'),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 120),
+        decoration: BoxDecoration(
+          color: selected ? DungeonColors.monsterCell : DungeonColors.floor,
           borderRadius: BorderRadius.circular(10),
-          onTap: enabled ? onTap : null,
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 2),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: selected ? cs.primary : Colors.transparent,
-                width: 2,
+          border: Border.all(color: selected ? accent : DungeonColors.line, width: selected ? 2 : 1),
+          boxShadow: selected ? [BoxShadow(color: accent.withValues(alpha: 0.35), blurRadius: 10)] : null,
+        ),
+        child: Material(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+          child: InkWell(
+            key: ValueKey('palette_${type.name}'),
+            borderRadius: BorderRadius.circular(10),
+            onTap: enabled ? onTap : null,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 2),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Opacity(opacity: dim ? 0.45 : 1, child: Sprite(type.sprite, size: 26)),
+                  const SizedBox(height: 3),
+                  Text(
+                    type.korean,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: DungeonFonts.body(size: 11, weight: FontWeight.w700, color: fg, height: 1.2),
+                  ),
+                  Text(
+                    '◆ ${type.spec.cost}',
+                    style: DungeonFonts.body(
+                      size: 10.5,
+                      weight: FontWeight.w600,
+                      color: affordable ? DungeonColors.gold.withValues(alpha: dim ? 0.5 : 1) : DungeonColors.danger,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(type.emoji, style: const TextStyle(fontSize: 22, height: 1)),
-                const SizedBox(height: 2),
-                Text(
-                  type.korean,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: fg, height: 1.2),
-                ),
-                Text(
-                  '🔮${type.spec.cost}',
-                  style: TextStyle(fontSize: 11, color: affordable ? fg : cs.error, height: 1.2),
-                ),
-              ],
             ),
           ),
         ),

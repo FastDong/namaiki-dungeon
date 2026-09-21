@@ -45,7 +45,7 @@ class Balance {
   static const int adversarialCandidates = 8, adversarialRollouts = 2;
 
   /// 단계 선정 승률 문턱 (stage3은 최고 승률 체크포인트).
-  static const double stage1WinRate = 0.10, stage2WinRate = 0.45;
+  static const double stage1WinRate = 0.10, stage2WinRate = 0.70;
 
   /// 폴백(분위수) 규칙: 문턱 미달 시 학습 진행률 기준.
   static const double stage1Quantile = 0.05, stage2Quantile = 0.30;

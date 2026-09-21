@@ -356,28 +356,26 @@ class LayoutGenerator {
   /// - 왕좌 앞 오크: 최단경로가 왕좌로 들어가는 마지막 칸.
   /// - 슬라임 밭: 최단경로 밖 중앙 열린 칸 6개 (우회로를 택하면 슬라임과 싸운다).
   /// 총 비용 3·2 + 6 + 6·1 = 18.
+  /// 데모 배치 (bin/find_demo.dart 로 학습된 정책에 대해 탐색한 결과, 2026-09-21):
+  /// 웨이브 6 용사 기준 stage1 승률 0%(함정 평균 4.9회), stage2 95%, stage3 100%(함정 0회). 비용 23.
+  /// 함정이 최단경로를 덮고, 우회로엔 슬라임·고블린, 왕좌 앞에 오크.
+  static const List<(MonsterType, Pos)> demoPlacements = [
+    (MonsterType.slime, Pos(5, 0)),
+    (MonsterType.slime, Pos(2, 1)),
+    (MonsterType.slime, Pos(4, 1)),
+    (MonsterType.trap, Pos(3, 2)),
+    (MonsterType.goblin, Pos(3, 4)),
+    (MonsterType.goblin, Pos(5, 4)),
+    (MonsterType.trap, Pos(0, 5)),
+    (MonsterType.orc, Pos(6, 5)),
+    (MonsterType.trap, Pos(3, 6)),
+    (MonsterType.trap, Pos(5, 6)),
+  ];
+
   static GridMap demoLayout() {
     final map = GridMap();
-    final onPath = _placeablePath(map);
-    for (final p in _middle(onPath, LayoutRules.demoTraps)) {
-      _placeChecked(map, MonsterType.trap, p);
-    }
-    _placeChecked(map, MonsterType.orc, onPath.last);
-
-    const fieldPool = [
-      Pos(2, 2), Pos(3, 2), Pos(4, 2),
-      Pos(2, 4), Pos(3, 4), Pos(4, 4),
-      Pos(2, 3), Pos(4, 3),
-      Pos(1, 2), Pos(5, 2), Pos(1, 4), Pos(5, 4),
-      Pos(2, 1), Pos(4, 1), Pos(2, 5), Pos(4, 5),
-    ];
-    final pathSet = onPath.toSet();
-    var slimes = 0;
-    for (final p in fieldPool) {
-      if (slimes >= LayoutRules.demoSlimes) break;
-      if (pathSet.contains(p) || map.monsters.containsKey(p)) continue;
-      _placeChecked(map, MonsterType.slime, p);
-      slimes++;
+    for (final (t, p) in demoPlacements) {
+      _placeChecked(map, t, p);
     }
     return map;
   }

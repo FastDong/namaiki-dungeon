@@ -1,14 +1,21 @@
 import 'package:dungeon_core/dungeon_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:namaiki_dungeon/game/game_controller.dart';
 import 'package:namaiki_dungeon/main.dart';
+import 'package:namaiki_dungeon/ui/leaderboard_screen.dart';
 import 'package:namaiki_dungeon/ui/play_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'fakes.dart';
 
 void main() {
+  setUpAll(() {
+    // 위젯 테스트에선 네트워크 폰트 페치 금지 → 기본 폰트 폴백
+    GoogleFonts.config.allowRuntimeFetching = false;
+  });
+
   final policies = <int, HeroPolicy>{
     for (var s = 1; s <= 3; s++) s: const GreedyPolicy(),
   };
@@ -20,7 +27,7 @@ void main() {
     addTearDown(tester.view.reset);
   }
 
-  testWidgets('메뉴: 제목·게임 시작·리더보드(준비 중 스낵바)', (tester) async {
+  testWidgets('메뉴: 제목·게임 시작·리더보드(Firebase 없으면 오류 상태)', (tester) async {
     await setPhone(tester);
     await tester.pumpWidget(NamaikiApp(policies: policies));
 
@@ -29,8 +36,13 @@ void main() {
     expect(find.text('리더보드'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('leaderboard_button')));
+    // 라우트 전환 + Firestore 미초기화 예외 → 오류 상태 (로딩 인디케이터는 무한 애니메이션이라 pumpAndSettle 금지)
     await tester.pump();
-    expect(find.text('리더보드는 준비 중입니다'), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    expect(find.byType(LeaderboardScreen), findsOneWidget);
+    expect(find.byKey(const ValueKey('leaderboard_error')), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   Widget playApp(GameController c) => MaterialApp(
@@ -76,7 +88,7 @@ void main() {
     final cost = MonsterType.goblin.spec.cost;
     expect(c.mana, Balance.startMana - cost);
     expect(find.text('🔮 마나 ${Balance.startMana - cost}'), findsOneWidget);
-    expect(find.text(MonsterType.goblin.emoji), findsWidgets);
+    expect(find.byKey(const ValueKey('sprite_goblin')), findsWidgets);
 
     // 같은 칸 다시 탭 → 제거
     await tester.tap(find.byKey(const ValueKey('cell_2_2')));
@@ -122,6 +134,7 @@ void main() {
     c.debugSetPhase(Phase.result);
     await tester.pump();
     expect(find.byKey(const ValueKey('result_dialog')), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 900)); // 슬라이드업 종료 대기
 
     await tester.tap(find.byKey(const ValueKey('next_wave_button')));
     await tester.pump();
@@ -129,6 +142,7 @@ void main() {
     expect(c.phase, Phase.evolve);
     expect(find.byKey(const ValueKey('evolve_overlay')), findsOneWidget);
     expect(find.textContaining('AI Stage 2'), findsWidgets);
+    await tester.pump(const Duration(milliseconds: 1000)); // 링/오버슈트 애니메이션 종료
 
     await tester.tap(find.byKey(const ValueKey('evolve_continue_button')));
     await tester.pump();

@@ -68,6 +68,8 @@ class GameController extends ChangeNotifier {
   HeroAction? _lastAction;
   StepResult? _lastStep;
   String? _lastError;
+  int _tick = 0;
+  int _lastHeroDamage = 0;
 
   // ── 읽기 ──────────────────────────────────────────
 
@@ -119,6 +121,15 @@ class GameController extends ChangeNotifier {
   Outcome? get lastOutcome => _lastOutcome;
   HeroAction? get lastAction => _lastAction;
   StepResult? get lastStep => _lastStep;
+
+  /// 스텝 카운터. 스텝마다 1씩 증가하며 이펙트 위젯이 "한 번 재생" 트리거로 쓴다 (웨이브 시작 시에도 증가).
+  int get tick => _tick;
+
+  /// 마지막 스텝의 이벤트 (없으면 빈 리스트). lastStep.events 와 동일.
+  List<Event> get lastEvents => _lastStep?.events ?? const [];
+
+  /// 마지막 스텝에서 용사가 잃은 HP (반격/함정). 0이면 피격 없음.
+  int get lastHeroDamage => _lastHeroDamage;
 
   /// 마지막 오류 메시지 (읽으면 지워짐). 코어 예외를 화면 스낵바로 보여주기 위함.
   String? takeError() {
@@ -239,12 +250,14 @@ class GameController extends ChangeNotifier {
     _lastAction = null;
     _lastStep = null;
     _lastOutcome = null;
+    _lastHeroDamage = 0;
+    _tick++;
     _phase = Phase.running;
     notifyListeners();
-    _timer = Timer.periodic(tickInterval, (_) => _tick());
+    _timer = Timer.periodic(tickInterval, (_) => _step());
   }
 
-  void _tick() {
+  void _step() {
     final s = _sim;
     final p = _policy;
     if (s == null || p == null) {
@@ -260,8 +273,11 @@ class GameController extends ChangeNotifier {
     try {
       final a = p.act(s, _rng);
       _lastAction = a;
+      final hpBefore = s.hp;
       final r = s.step(a);
       _lastStep = r;
+      _lastHeroDamage = max(0, hpBefore - s.hp);
+      _tick++;
       if (r.done) {
         _stopTimer();
         _finishWave(r.outcome);

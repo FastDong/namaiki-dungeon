@@ -285,24 +285,18 @@ void main() {
   });
 
   group('demoLayout', () {
-    test('비용 ≤ 30, 함정 ≥2(최단경로 위), 오크 ≥1(왕좌 앞), 슬라임 ≥5', () {
+    test('비용 ≤ 30, 함정 ≥2, 오크 ≥1(왕좌 앞), 슬라임 ≥3, demoPlacements와 일치', () {
+      // 데모 배치는 bin/find_demo.dart 로 학습 정책에 대해 탐색한 고정 데이터(demoPlacements)다.
+      // 단계 간 승률 격차 자체는 정책에 의존하므로 여기서는 구조만 검증한다.
       final m = LayoutGenerator.demoLayout();
       expectValid(m, 'demo');
       expect(m.totalCost, lessThanOrEqualTo(30));
-      final pathSet = GridMap().shortestPath().toSet();
-      final traps = cellsOf(m, MonsterType.trap).toList();
-      expect(traps.length, greaterThanOrEqualTo(2));
-      for (final p in traps) {
-        expect(pathSet.contains(p), isTrue, reason: '함정 $p 는 최단경로 밖');
-      }
+      expect(m.monsters.length, LayoutGenerator.demoPlacements.length, reason: '금지 칸 때문에 빠진 배치가 있음');
+      expect(cellsOf(m, MonsterType.trap).length, greaterThanOrEqualTo(2));
       final orcs = cellsOf(m, MonsterType.orc).toList();
       expect(orcs.length, greaterThanOrEqualTo(1));
       expect(orcs.any((p) => p.manhattan(Pos.throne) == 1), isTrue);
-      final slimes = cellsOf(m, MonsterType.slime).toList();
-      expect(slimes.length, greaterThanOrEqualTo(5));
-      for (final p in slimes) {
-        expect(pathSet.contains(p), isFalse, reason: '슬라임 $p 는 우회로(최단경로 밖)에 있어야 함');
-      }
+      expect(cellsOf(m, MonsterType.slime).length, greaterThanOrEqualTo(3));
     });
 
     test('두 번 호출해도 동일', () {

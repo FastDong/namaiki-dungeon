@@ -1,0 +1,1318 @@
+{
+  "evalSize": 300,
+  "evalSeed": 42,
+  "epsPlay": 0.03,
+  "checkpoints": [
+    {
+      "episode": 2000,
+      "stats": {
+        "winRate": 0.43333333333333335,
+        "avgSteps": 58.5,
+        "trapHits": 0.25,
+        "potionsUsed": 0.9666666666666667,
+        "kills": 1.3366666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 1344
+    },
+    {
+      "episode": 4000,
+      "stats": {
+        "winRate": 0.5766666666666667,
+        "avgSteps": 45.60666666666667,
+        "trapHits": 0.8766666666666667,
+        "potionsUsed": 0.68,
+        "kills": 1.27,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 1639
+    },
+    {
+      "episode": 6000,
+      "stats": {
+        "winRate": 0.7333333333333333,
+        "avgSteps": 37.79333333333334,
+        "trapHits": 0.3566666666666667,
+        "potionsUsed": 0.6066666666666667,
+        "kills": 1.3833333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 1829
+    },
+    {
+      "episode": 8000,
+      "stats": {
+        "winRate": 0.6,
+        "avgSteps": 44.52,
+        "trapHits": 0.37,
+        "potionsUsed": 0.6566666666666666,
+        "kills": 1.23,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 1955
+    },
+    {
+      "episode": 10000,
+      "stats": {
+        "winRate": 0.45,
+        "avgSteps": 57.60666666666667,
+        "trapHits": 0.36666666666666664,
+        "potionsUsed": 0.6333333333333333,
+        "kills": 1.0533333333333332,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2052
+    },
+    {
+      "episode": 12000,
+      "stats": {
+        "winRate": 0.6033333333333334,
+        "avgSteps": 45.43666666666667,
+        "trapHits": 1.71,
+        "potionsUsed": 1.05,
+        "kills": 1.3166666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2118
+    },
+    {
+      "episode": 14000,
+      "stats": {
+        "winRate": 0.6766666666666666,
+        "avgSteps": 40.11666666666667,
+        "trapHits": 0.33,
+        "potionsUsed": 0.7033333333333334,
+        "kills": 1.3433333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2179
+    },
+    {
+      "episode": 16000,
+      "stats": {
+        "winRate": 0.74,
+        "avgSteps": 35.49,
+        "trapHits": 0.3233333333333333,
+        "potionsUsed": 0.6133333333333333,
+        "kills": 1.58,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2217
+    },
+    {
+      "episode": 18000,
+      "stats": {
+        "winRate": 0.7433333333333333,
+        "avgSteps": 36.053333333333335,
+        "trapHits": 0.3,
+        "potionsUsed": 0.5766666666666667,
+        "kills": 1.3166666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2249
+    },
+    {
+      "episode": 20000,
+      "stats": {
+        "winRate": 0.7066666666666667,
+        "avgSteps": 36.00333333333333,
+        "trapHits": 0.37333333333333335,
+        "potionsUsed": 0.46,
+        "kills": 1.2166666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2290
+    },
+    {
+      "episode": 22000,
+      "stats": {
+        "winRate": 0.07333333333333333,
+        "avgSteps": 77.68333333333334,
+        "trapHits": 0.15333333333333332,
+        "potionsUsed": 0.5266666666666666,
+        "kills": 0.36333333333333334,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2321
+    },
+    {
+      "episode": 24000,
+      "stats": {
+        "winRate": 0.33666666666666667,
+        "avgSteps": 62.2,
+        "trapHits": 0.5833333333333334,
+        "potionsUsed": 0.6166666666666667,
+        "kills": 0.89,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2350
+    },
+    {
+      "episode": 26000,
+      "stats": {
+        "winRate": 0.15666666666666668,
+        "avgSteps": 72.95333333333333,
+        "trapHits": 0.4066666666666667,
+        "potionsUsed": 1.2133333333333334,
+        "kills": 0.72,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2379
+    },
+    {
+      "episode": 28000,
+      "stats": {
+        "winRate": 0.07333333333333333,
+        "avgSteps": 76.98666666666666,
+        "trapHits": 0.23,
+        "potionsUsed": 0.6533333333333333,
+        "kills": 0.67,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2407
+    },
+    {
+      "episode": 30000,
+      "stats": {
+        "winRate": 0.88,
+        "avgSteps": 26.626666666666665,
+        "trapHits": 0.6066666666666667,
+        "potionsUsed": 0.5833333333333334,
+        "kills": 1.49,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2425
+    },
+    {
+      "episode": 32000,
+      "stats": {
+        "winRate": 0.44666666666666666,
+        "avgSteps": 55.07,
+        "trapHits": 0.75,
+        "potionsUsed": 0.9133333333333333,
+        "kills": 1.0866666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2448
+    },
+    {
+      "episode": 34000,
+      "stats": {
+        "winRate": 0.94,
+        "avgSteps": 21.726666666666667,
+        "trapHits": 0.5733333333333334,
+        "potionsUsed": 0.5566666666666666,
+        "kills": 1.5066666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2477
+    },
+    {
+      "episode": 36000,
+      "stats": {
+        "winRate": 0.3433333333333333,
+        "avgSteps": 68.04333333333334,
+        "trapHits": 0.31333333333333335,
+        "potionsUsed": 0.6666666666666666,
+        "kills": 0.8766666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2496
+    },
+    {
+      "episode": 38000,
+      "stats": {
+        "winRate": 0.94,
+        "avgSteps": 21.33,
+        "trapHits": 0.6133333333333333,
+        "potionsUsed": 0.6033333333333334,
+        "kills": 1.5066666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2510
+    },
+    {
+      "episode": 40000,
+      "stats": {
+        "winRate": 0.88,
+        "avgSteps": 26.59,
+        "trapHits": 0.5366666666666666,
+        "potionsUsed": 0.5866666666666667,
+        "kills": 1.5233333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2529
+    },
+    {
+      "episode": 42000,
+      "stats": {
+        "winRate": 0.83,
+        "avgSteps": 30.093333333333334,
+        "trapHits": 0.5333333333333333,
+        "potionsUsed": 0.42,
+        "kills": 1.4266666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2707
+    },
+    {
+      "episode": 44000,
+      "stats": {
+        "winRate": 0.77,
+        "avgSteps": 32.83,
+        "trapHits": 0.39666666666666667,
+        "potionsUsed": 1.98,
+        "kills": 1.1466666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2810
+    },
+    {
+      "episode": 46000,
+      "stats": {
+        "winRate": 0.22,
+        "avgSteps": 72.52,
+        "trapHits": 0.09333333333333334,
+        "potionsUsed": 0.49666666666666665,
+        "kills": 0.5466666666666666,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2867
+    },
+    {
+      "episode": 48000,
+      "stats": {
+        "winRate": 0.6033333333333334,
+        "avgSteps": 45.516666666666666,
+        "trapHits": 0.26666666666666666,
+        "potionsUsed": 0.42,
+        "kills": 1.2166666666666666,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 2910
+    },
+    {
+      "episode": 50000,
+      "stats": {
+        "winRate": 0.85,
+        "avgSteps": 25.933333333333334,
+        "trapHits": 0.3933333333333333,
+        "potionsUsed": 0.32,
+        "kills": 1.22,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2940
+    },
+    {
+      "episode": 52000,
+      "stats": {
+        "winRate": 0.6,
+        "avgSteps": 43.93333333333333,
+        "trapHits": 0.26666666666666666,
+        "potionsUsed": 0.5066666666666667,
+        "kills": 1.1,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 2980
+    },
+    {
+      "episode": 54000,
+      "stats": {
+        "winRate": 0.8133333333333334,
+        "avgSteps": 30.05,
+        "trapHits": 0.4066666666666667,
+        "potionsUsed": 0.44666666666666666,
+        "kills": 1.3966666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3032
+    },
+    {
+      "episode": 56000,
+      "stats": {
+        "winRate": 0.7033333333333334,
+        "avgSteps": 36.766666666666666,
+        "trapHits": 0.41,
+        "potionsUsed": 0.39666666666666667,
+        "kills": 1.2833333333333334,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3059
+    },
+    {
+      "episode": 58000,
+      "stats": {
+        "winRate": 0.69,
+        "avgSteps": 37.843333333333334,
+        "trapHits": 0.41,
+        "potionsUsed": 1.96,
+        "kills": 1.0933333333333333,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3085
+    },
+    {
+      "episode": 60000,
+      "stats": {
+        "winRate": 0.72,
+        "avgSteps": 37.343333333333334,
+        "trapHits": 0.38333333333333336,
+        "potionsUsed": 2.0,
+        "kills": 1.3166666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3112
+    },
+    {
+      "episode": 62000,
+      "stats": {
+        "winRate": 0.82,
+        "avgSteps": 29.49,
+        "trapHits": 0.52,
+        "potionsUsed": 2.0,
+        "kills": 1.2566666666666666,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3133
+    },
+    {
+      "episode": 64000,
+      "stats": {
+        "winRate": 0.7333333333333333,
+        "avgSteps": 35.513333333333335,
+        "trapHits": 0.41333333333333333,
+        "potionsUsed": 0.39666666666666667,
+        "kills": 1.2866666666666666,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3152
+    },
+    {
+      "episode": 66000,
+      "stats": {
+        "winRate": 0.3333333333333333,
+        "avgSteps": 66.52666666666667,
+        "trapHits": 0.43,
+        "potionsUsed": 1.97,
+        "kills": 1.1533333333333333,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3176
+    },
+    {
+      "episode": 68000,
+      "stats": {
+        "winRate": 0.7533333333333333,
+        "avgSteps": 32.56,
+        "trapHits": 0.38,
+        "potionsUsed": 0.41333333333333333,
+        "kills": 1.3233333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3186
+    },
+    {
+      "episode": 70000,
+      "stats": {
+        "winRate": 0.6566666666666666,
+        "avgSteps": 41.60333333333333,
+        "trapHits": 0.23,
+        "potionsUsed": 0.49,
+        "kills": 1.2766666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3199
+    },
+    {
+      "episode": 72000,
+      "stats": {
+        "winRate": 0.86,
+        "avgSteps": 26.336666666666666,
+        "trapHits": 0.5133333333333333,
+        "potionsUsed": 0.9066666666666666,
+        "kills": 1.25,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3210
+    },
+    {
+      "episode": 74000,
+      "stats": {
+        "winRate": 0.83,
+        "avgSteps": 28.996666666666666,
+        "trapHits": 0.4633333333333333,
+        "potionsUsed": 1.9666666666666666,
+        "kills": 1.27,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3214
+    },
+    {
+      "episode": 76000,
+      "stats": {
+        "winRate": 0.85,
+        "avgSteps": 25.80666666666667,
+        "trapHits": 0.5133333333333333,
+        "potionsUsed": 0.48333333333333334,
+        "kills": 1.35,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3223
+    },
+    {
+      "episode": 78000,
+      "stats": {
+        "winRate": 0.7466666666666667,
+        "avgSteps": 34.903333333333336,
+        "trapHits": 0.3933333333333333,
+        "potionsUsed": 0.56,
+        "kills": 1.2633333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3230
+    },
+    {
+      "episode": 80000,
+      "stats": {
+        "winRate": 0.76,
+        "avgSteps": 32.25666666666667,
+        "trapHits": 0.36333333333333334,
+        "potionsUsed": 0.36,
+        "kills": 1.3666666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3236
+    },
+    {
+      "episode": 82000,
+      "stats": {
+        "winRate": 0.9366666666666666,
+        "avgSteps": 20.573333333333334,
+        "trapHits": 0.5466666666666666,
+        "potionsUsed": 0.47,
+        "kills": 1.57,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3237
+    },
+    {
+      "episode": 84000,
+      "stats": {
+        "winRate": 0.9266666666666666,
+        "avgSteps": 20.98,
+        "trapHits": 0.5333333333333333,
+        "potionsUsed": 0.46,
+        "kills": 1.5533333333333332,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3240
+    },
+    {
+      "episode": 86000,
+      "stats": {
+        "winRate": 0.7966666666666666,
+        "avgSteps": 31.636666666666667,
+        "trapHits": 0.3566666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.2033333333333334,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3249
+    },
+    {
+      "episode": 88000,
+      "stats": {
+        "winRate": 0.84,
+        "avgSteps": 27.85333333333333,
+        "trapHits": 0.4033333333333333,
+        "potionsUsed": 0.46,
+        "kills": 1.41,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3251
+    },
+    {
+      "episode": 90000,
+      "stats": {
+        "winRate": 0.97,
+        "avgSteps": 18.22,
+        "trapHits": 0.56,
+        "potionsUsed": 0.5333333333333333,
+        "kills": 1.5933333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3256
+    },
+    {
+      "episode": 92000,
+      "stats": {
+        "winRate": 0.8433333333333334,
+        "avgSteps": 27.38,
+        "trapHits": 0.4033333333333333,
+        "potionsUsed": 0.43666666666666665,
+        "kills": 1.21,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3263
+    },
+    {
+      "episode": 94000,
+      "stats": {
+        "winRate": 0.8166666666666667,
+        "avgSteps": 29.673333333333332,
+        "trapHits": 0.4,
+        "potionsUsed": 0.4766666666666667,
+        "kills": 1.42,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3263
+    },
+    {
+      "episode": 96000,
+      "stats": {
+        "winRate": 0.9033333333333333,
+        "avgSteps": 23.036666666666665,
+        "trapHits": 0.47,
+        "potionsUsed": 1.9633333333333334,
+        "kills": 1.3766666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3268
+    },
+    {
+      "episode": 98000,
+      "stats": {
+        "winRate": 0.9033333333333333,
+        "avgSteps": 24.49,
+        "trapHits": 0.49666666666666665,
+        "potionsUsed": 1.9933333333333334,
+        "kills": 1.5233333333333334,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3272
+    },
+    {
+      "episode": 100000,
+      "stats": {
+        "winRate": 0.9233333333333333,
+        "avgSteps": 22.47,
+        "trapHits": 0.4866666666666667,
+        "potionsUsed": 1.9833333333333334,
+        "kills": 1.51,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3277
+    },
+    {
+      "episode": 102000,
+      "stats": {
+        "winRate": 0.9433333333333334,
+        "avgSteps": 20.756666666666668,
+        "trapHits": 0.49,
+        "potionsUsed": 1.9866666666666666,
+        "kills": 1.5666666666666667,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3277
+    },
+    {
+      "episode": 104000,
+      "stats": {
+        "winRate": 0.9466666666666667,
+        "avgSteps": 20.906666666666666,
+        "trapHits": 0.4866666666666667,
+        "potionsUsed": 1.98,
+        "kills": 1.54,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3279
+    },
+    {
+      "episode": 106000,
+      "stats": {
+        "winRate": 0.9366666666666666,
+        "avgSteps": 21.19,
+        "trapHits": 0.52,
+        "potionsUsed": 1.99,
+        "kills": 1.4866666666666666,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3280
+    },
+    {
+      "episode": 108000,
+      "stats": {
+        "winRate": 0.92,
+        "avgSteps": 22.4,
+        "trapHits": 0.5133333333333333,
+        "potionsUsed": 1.9866666666666666,
+        "kills": 1.4466666666666668,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3285
+    },
+    {
+      "episode": 110000,
+      "stats": {
+        "winRate": 0.97,
+        "avgSteps": 19.386666666666667,
+        "trapHits": 0.44,
+        "potionsUsed": 0.8566666666666667,
+        "kills": 1.6533333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3289
+    },
+    {
+      "episode": 112000,
+      "stats": {
+        "winRate": 0.9766666666666667,
+        "avgSteps": 17.383333333333333,
+        "trapHits": 0.5466666666666666,
+        "potionsUsed": 0.77,
+        "kills": 1.6233333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3291
+    },
+    {
+      "episode": 114000,
+      "stats": {
+        "winRate": 0.9266666666666666,
+        "avgSteps": 21.816666666666666,
+        "trapHits": 0.5966666666666667,
+        "potionsUsed": 1.99,
+        "kills": 1.3833333333333333,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3292
+    },
+    {
+      "episode": 116000,
+      "stats": {
+        "winRate": 0.9833333333333333,
+        "avgSteps": 17.65,
+        "trapHits": 0.5433333333333333,
+        "potionsUsed": 0.5666666666666667,
+        "kills": 1.69,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3293
+    },
+    {
+      "episode": 118000,
+      "stats": {
+        "winRate": 0.9833333333333333,
+        "avgSteps": 17.946666666666665,
+        "trapHits": 0.56,
+        "potionsUsed": 0.5366666666666666,
+        "kills": 1.6566666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3293
+    },
+    {
+      "episode": 120000,
+      "stats": {
+        "winRate": 0.97,
+        "avgSteps": 18.503333333333334,
+        "trapHits": 0.5433333333333333,
+        "potionsUsed": 0.5466666666666666,
+        "kills": 1.62,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3294
+    },
+    {
+      "episode": 122000,
+      "stats": {
+        "winRate": 0.72,
+        "avgSteps": 36.55,
+        "trapHits": 0.35333333333333333,
+        "potionsUsed": 1.59,
+        "kills": 1.2933333333333332,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3315
+    },
+    {
+      "episode": 124000,
+      "stats": {
+        "winRate": 0.9033333333333333,
+        "avgSteps": 23.55666666666667,
+        "trapHits": 0.4666666666666667,
+        "potionsUsed": 1.9766666666666666,
+        "kills": 1.4533333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3343
+    },
+    {
+      "episode": 126000,
+      "stats": {
+        "winRate": 0.023333333333333334,
+        "avgSteps": 79.09666666666666,
+        "trapHits": 0.05,
+        "potionsUsed": 2.0,
+        "kills": 0.28,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3361
+    },
+    {
+      "episode": 128000,
+      "stats": {
+        "winRate": 0.9466666666666667,
+        "avgSteps": 20.766666666666666,
+        "trapHits": 0.42,
+        "potionsUsed": 0.8733333333333333,
+        "kills": 1.64,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3372
+    },
+    {
+      "episode": 130000,
+      "stats": {
+        "winRate": 0.97,
+        "avgSteps": 19.163333333333334,
+        "trapHits": 0.47,
+        "potionsUsed": 1.0266666666666666,
+        "kills": 1.62,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3385
+    },
+    {
+      "episode": 132000,
+      "stats": {
+        "winRate": 0.53,
+        "avgSteps": 58.56,
+        "trapHits": 0.3433333333333333,
+        "potionsUsed": 1.0233333333333334,
+        "kills": 1.42,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3393
+    },
+    {
+      "episode": 134000,
+      "stats": {
+        "winRate": 0.96,
+        "avgSteps": 20.793333333333333,
+        "trapHits": 0.5266666666666666,
+        "potionsUsed": 1.8933333333333333,
+        "kills": 1.6666666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3399
+    },
+    {
+      "episode": 136000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 21.57,
+        "trapHits": 0.42,
+        "potionsUsed": 1.9733333333333334,
+        "kills": 1.65,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3407
+    },
+    {
+      "episode": 138000,
+      "stats": {
+        "winRate": 0.97,
+        "avgSteps": 19.6,
+        "trapHits": 0.54,
+        "potionsUsed": 1.9833333333333334,
+        "kills": 1.6466666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3413
+    },
+    {
+      "episode": 140000,
+      "stats": {
+        "winRate": 0.9566666666666667,
+        "avgSteps": 20.813333333333333,
+        "trapHits": 0.5433333333333333,
+        "potionsUsed": 1.94,
+        "kills": 1.47,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3415
+    },
+    {
+      "episode": 142000,
+      "stats": {
+        "winRate": 0.9666666666666667,
+        "avgSteps": 20.013333333333332,
+        "trapHits": 0.5066666666666667,
+        "potionsUsed": 1.92,
+        "kills": 1.4433333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3422
+    },
+    {
+      "episode": 144000,
+      "stats": {
+        "winRate": 0.9566666666666667,
+        "avgSteps": 20.423333333333332,
+        "trapHits": 0.43666666666666665,
+        "potionsUsed": 1.8866666666666667,
+        "kills": 1.5,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3429
+    },
+    {
+      "episode": 146000,
+      "stats": {
+        "winRate": 0.9666666666666667,
+        "avgSteps": 19.9,
+        "trapHits": 0.49666666666666665,
+        "potionsUsed": 1.9833333333333334,
+        "kills": 1.4566666666666668,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3435
+    },
+    {
+      "episode": 148000,
+      "stats": {
+        "winRate": 0.9533333333333334,
+        "avgSteps": 20.07,
+        "trapHits": 0.44666666666666666,
+        "potionsUsed": 1.99,
+        "kills": 1.5233333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3440
+    },
+    {
+      "episode": 150000,
+      "stats": {
+        "winRate": 0.9433333333333334,
+        "avgSteps": 20.16,
+        "trapHits": 0.49333333333333335,
+        "potionsUsed": 2.0,
+        "kills": 1.35,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3441
+    },
+    {
+      "episode": 152000,
+      "stats": {
+        "winRate": 0.04666666666666667,
+        "avgSteps": 78.57333333333334,
+        "trapHits": 0.07,
+        "potionsUsed": 2.0,
+        "kills": 0.30666666666666664,
+        "episodes": 300
+      },
+      "demo": false,
+      "stateCount": 3450
+    },
+    {
+      "episode": 154000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 20.69333333333333,
+        "trapHits": 0.5166666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.41,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3455
+    },
+    {
+      "episode": 156000,
+      "stats": {
+        "winRate": 0.9433333333333334,
+        "avgSteps": 20.926666666666666,
+        "trapHits": 0.5233333333333333,
+        "potionsUsed": 2.0,
+        "kills": 1.3433333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3457
+    },
+    {
+      "episode": 158000,
+      "stats": {
+        "winRate": 0.9366666666666666,
+        "avgSteps": 21.07,
+        "trapHits": 0.53,
+        "potionsUsed": 2.0,
+        "kills": 1.3566666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3466
+    },
+    {
+      "episode": 160000,
+      "stats": {
+        "winRate": 0.94,
+        "avgSteps": 21.24,
+        "trapHits": 0.5033333333333333,
+        "potionsUsed": 2.0,
+        "kills": 1.3633333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3469
+    },
+    {
+      "episode": 162000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 20.43,
+        "trapHits": 0.5033333333333333,
+        "potionsUsed": 2.0,
+        "kills": 1.3933333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3470
+    },
+    {
+      "episode": 164000,
+      "stats": {
+        "winRate": 0.96,
+        "avgSteps": 19.816666666666666,
+        "trapHits": 0.49666666666666665,
+        "potionsUsed": 2.0,
+        "kills": 1.3733333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3471
+    },
+    {
+      "episode": 166000,
+      "stats": {
+        "winRate": 0.9466666666666667,
+        "avgSteps": 20.386666666666667,
+        "trapHits": 0.49,
+        "potionsUsed": 2.0,
+        "kills": 1.3633333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3474
+    },
+    {
+      "episode": 168000,
+      "stats": {
+        "winRate": 0.9433333333333334,
+        "avgSteps": 20.956666666666667,
+        "trapHits": 0.49,
+        "potionsUsed": 2.0,
+        "kills": 1.3566666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3476
+    },
+    {
+      "episode": 170000,
+      "stats": {
+        "winRate": 0.9366666666666666,
+        "avgSteps": 21.153333333333332,
+        "trapHits": 0.49666666666666665,
+        "potionsUsed": 2.0,
+        "kills": 1.3566666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3479
+    },
+    {
+      "episode": 172000,
+      "stats": {
+        "winRate": 0.94,
+        "avgSteps": 20.953333333333333,
+        "trapHits": 0.5133333333333333,
+        "potionsUsed": 2.0,
+        "kills": 1.3666666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3483
+    },
+    {
+      "episode": 174000,
+      "stats": {
+        "winRate": 0.9533333333333334,
+        "avgSteps": 20.36,
+        "trapHits": 0.49333333333333335,
+        "potionsUsed": 2.0,
+        "kills": 1.3966666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3488
+    },
+    {
+      "episode": 176000,
+      "stats": {
+        "winRate": 0.9533333333333334,
+        "avgSteps": 20.046666666666667,
+        "trapHits": 0.48333333333333334,
+        "potionsUsed": 2.0,
+        "kills": 1.4233333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3489
+    },
+    {
+      "episode": 178000,
+      "stats": {
+        "winRate": 0.96,
+        "avgSteps": 19.46,
+        "trapHits": 0.48,
+        "potionsUsed": 2.0,
+        "kills": 1.52,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3493
+    },
+    {
+      "episode": 180000,
+      "stats": {
+        "winRate": 0.9566666666666667,
+        "avgSteps": 19.533333333333335,
+        "trapHits": 0.49,
+        "potionsUsed": 2.0,
+        "kills": 1.4933333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3496
+    },
+    {
+      "episode": 182000,
+      "stats": {
+        "winRate": 0.9566666666666667,
+        "avgSteps": 19.823333333333334,
+        "trapHits": 0.48,
+        "potionsUsed": 2.0,
+        "kills": 1.4933333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3501
+    },
+    {
+      "episode": 184000,
+      "stats": {
+        "winRate": 0.9633333333333334,
+        "avgSteps": 19.216666666666665,
+        "trapHits": 0.5066666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.4833333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3505
+    },
+    {
+      "episode": 186000,
+      "stats": {
+        "winRate": 0.9433333333333334,
+        "avgSteps": 20.19,
+        "trapHits": 0.5066666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.4733333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3517
+    },
+    {
+      "episode": 188000,
+      "stats": {
+        "winRate": 0.9666666666666667,
+        "avgSteps": 18.826666666666668,
+        "trapHits": 0.49333333333333335,
+        "potionsUsed": 2.0,
+        "kills": 1.4966666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3524
+    },
+    {
+      "episode": 190000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 19.956666666666667,
+        "trapHits": 0.5066666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.49,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3526
+    },
+    {
+      "episode": 192000,
+      "stats": {
+        "winRate": 0.8766666666666667,
+        "avgSteps": 25.753333333333334,
+        "trapHits": 0.37333333333333335,
+        "potionsUsed": 1.9933333333333334,
+        "kills": 1.43,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3526
+    },
+    {
+      "episode": 194000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 19.953333333333333,
+        "trapHits": 0.4866666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.4833333333333334,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3529
+    },
+    {
+      "episode": 196000,
+      "stats": {
+        "winRate": 0.96,
+        "avgSteps": 19.993333333333332,
+        "trapHits": 0.4866666666666667,
+        "potionsUsed": 2.0,
+        "kills": 1.4233333333333333,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3536
+    },
+    {
+      "episode": 198000,
+      "stats": {
+        "winRate": 0.95,
+        "avgSteps": 20.023333333333333,
+        "trapHits": 0.52,
+        "potionsUsed": 2.0,
+        "kills": 1.4166666666666667,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3538
+    },
+    {
+      "episode": 200000,
+      "stats": {
+        "winRate": 0.9466666666666667,
+        "avgSteps": 20.30666666666667,
+        "trapHits": 0.49666666666666665,
+        "potionsUsed": 2.0,
+        "kills": 1.4966666666666666,
+        "episodes": 300
+      },
+      "demo": true,
+      "stateCount": 3541
+    }
+  ],
+  "stages": {
+    "stage1": 2000,
+    "stage2": 6000,
+    "stage3": 118000
+  },
+  "demo": {
+    "stage1": false,
+    "stage2": true,
+    "stage3": true
+  },
+  "selectionRule": "threshold"
+}

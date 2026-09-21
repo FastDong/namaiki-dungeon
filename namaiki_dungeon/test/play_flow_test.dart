@@ -5,12 +5,18 @@
 import 'package:dungeon_core/dungeon_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:namaiki_dungeon/game/game_controller.dart';
 import 'package:namaiki_dungeon/main.dart';
 import 'package:namaiki_dungeon/ui/play_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  setUpAll(() {
+    // 위젯 테스트에선 네트워크 폰트 페치 금지 → 기본 폰트 폴백
+    GoogleFonts.config.allowRuntimeFetching = false;
+  });
+
   final policies = <int, HeroPolicy>{
     for (var s = 1; s <= Balance.totalWaves ~/ Balance.wavesPerStage; s++) s: const GreedyPolicy(),
   };
@@ -70,7 +76,7 @@ void main() {
     expect(c.mana, expectedMana);
     expect(find.text('🔮 마나 $expectedMana'), findsOneWidget);
     expect(c.map.monsters[cell]?.type, MonsterType.slime);
-    expect(find.text(MonsterType.slime.emoji), findsWidgets);
+    expect(find.byKey(const ValueKey('sprite_slime')), findsWidgets);
 
     // 웨이브 시작
     await tester.tap(find.text('웨이브 시작'));
@@ -200,6 +206,8 @@ void main() {
     await tester.pump();
     if (c.phase == Phase.result) {
       expect(find.byKey(const ValueKey('result_dialog')), findsOneWidget);
+      // 결과 카드 슬라이드업(≈700ms)이 끝난 뒤 탭
+      await tester.pump(const Duration(milliseconds: 900));
       // 다음 웨이브: 마나 +5, 웨이브 2, 빌드 페이즈, 죽은 슬라임은 사라짐
       await tester.tap(find.byKey(const ValueKey('next_wave_button')));
       await tester.pump();

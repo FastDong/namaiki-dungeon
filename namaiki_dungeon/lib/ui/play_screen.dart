@@ -5,14 +5,19 @@ import 'package:provider/provider.dart';
 import '../game/game_controller.dart';
 import 'admin_sheet.dart';
 import 'board_grid.dart';
+import 'brain_panel.dart';
 import 'build_panel.dart';
 import 'end_screen.dart';
 import 'evolve_overlay.dart';
 import 'hud.dart';
 import 'result_dialog.dart';
+import 'theme.dart';
 
-/// 플레이 화면: HUD + 보드 + 빌드 패널, 페이즈별 오버레이(결과/진화/종료).
+/// 플레이 화면: HUD + 2.5D 보드 + 두뇌 패널 + 빌드 패널, 페이즈별 오버레이(결과/진화/종료).
 /// 상위에서 `ChangeNotifierProvider<GameController>`로 감싸서 띄운다.
+///
+/// 이펙트는 [GameController.tick] 이 바뀔 때마다 [GameController.lastEvents] 를 한 번씩 재생한다
+/// (BoardGrid 안에서 key 교체 방식). 사망/왕좌 도달은 outcome 으로 보드 물들임 → 결과 카드 슬라이드업.
 class PlayScreen extends StatefulWidget {
   const PlayScreen({super.key});
 
@@ -51,13 +56,12 @@ class _PlayScreenState extends State<PlayScreen> {
   }
 
   void _snack(String msg, {bool isError = false}) {
-    final cs = Theme.of(context).colorScheme;
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
-        content: Text(msg),
+        content: Text(msg, style: DungeonFonts.body(size: 13)),
         duration: Duration(milliseconds: isError ? 3500 : 1200),
-        backgroundColor: isError ? cs.errorContainer : null,
+        backgroundColor: isError ? const Color(0xFF4A1F22) : DungeonColors.stone,
       ));
   }
 
@@ -80,48 +84,78 @@ class _PlayScreenState extends State<PlayScreen> {
   Widget build(BuildContext context) {
     final c = context.watch<GameController>();
     final phase = c.phase;
+    final ended = phase == Phase.result || phase == Phase.gameOver || phase == Phase.victory;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('마왕의 던전'),
-        actions: [
-          IconButton(
-            key: const ValueKey('admin_button'),
-            tooltip: '관리자',
-            icon: const Icon(Icons.settings),
-            onPressed: () => AdminSheet.show(context),
-          ),
-        ],
-      ),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          SafeArea(
-            child: Column(
-              children: [
-                const Hud(),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    child: Center(
-                      child: BoardGrid(
-                        map: c.boardMap,
-                        trail: c.trail,
-                        heroPos: c.showHero ? c.sim?.heroPos : null,
-                        buildMode: c.canBuild,
-                        onCellTap: (p) => _onCellTap(c, p),
+    return Theme(
+      data: DungeonTheme.of(context),
+      child: Scaffold(
+        backgroundColor: DungeonColors.void_,
+        appBar: AppBar(
+          title: Text('마왕의 던전', style: DungeonFonts.title(size: 20)),
+          actions: [
+            IconButton(
+              key: const ValueKey('admin_button'),
+              tooltip: '관리자',
+              icon: const Icon(Icons.settings, color: DungeonColors.muted),
+              onPressed: () => AdminSheet.show(context),
+            ),
+          ],
+        ),
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // 배경: 아주 은은한 violet 비네트
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  center: Alignment(0, -0.2),
+                  radius: 1.1,
+                  colors: [Color(0xFF1B1626), DungeonColors.void_],
+                ),
+              ),
+            ),
+            SafeArea(
+              child: Column(
+                children: [
+                  const Hud(),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                      child: LayoutBuilder(
+                        builder: (context, box) {
+                          // 세로가 모자라면 보드를 줄인다 (기울인 높이 = side * footprintRatio).
+                          final byHeight = box.maxHeight.isFinite
+                              ? box.maxHeight / BoardGrid.footprintRatio
+                              : double.infinity;
+                          final side = [360.0, box.maxWidth, byHeight].reduce((a, b) => a < b ? a : b);
+                          return Center(
+                            child: BoardGrid(
+                              map: c.boardMap,
+                              trail: c.trail,
+                              heroPos: c.showHero ? c.sim?.heroPos : null,
+                              buildMode: c.canBuild,
+                              onCellTap: (p) => _onCellTap(c, p),
+                              events: c.lastEvents,
+                              tick: c.tick,
+                              heroDamage: c.lastHeroDamage,
+                              outcome: ended ? c.lastOutcome : null,
+                              maxSide: side.clamp(120.0, 360.0),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
-                ),
-                const BuildPanel(),
-              ],
+                  const BrainPanel(),
+                  const BuildPanel(),
+                ],
+              ),
             ),
-          ),
-          if (phase == Phase.result) const ResultDialog(),
-          if (phase == Phase.evolve) const EvolveOverlay(),
-          if (phase == Phase.gameOver || phase == Phase.victory) const EndScreen(),
-        ],
+            if (phase == Phase.result) const ResultDialog(),
+            if (phase == Phase.evolve) const EvolveOverlay(),
+            if (phase == Phase.gameOver || phase == Phase.victory) const EndScreen(),
+          ],
+        ),
       ),
     );
   }

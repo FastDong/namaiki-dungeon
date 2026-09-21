@@ -1,0 +1,42 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+*.iml
+.idea/
+.metadata
+pubspec.lock
+namaiki_dungeon/.flutter-plugins*
+namaiki_dungeon/android/local.properties
+namaiki_dungeon/android/.gradle/
+namaiki_dungeon/android/key.properties
+namaiki_dungeon/android/app/*.jks
+namaiki_dungeon/web/.last_build_id
+
+# 학습 산출물 (체크포인트는 크므로 제외, 최종 정책/곡선/평가는 포함)
+dungeon_core/out/checkpoints/
+
+# 로컬
+*.log
+Thumbs.db
+.DS_Store
+
+# ── 비밀/민감 정보 (절대 커밋 금지) ──
+namaiki_dungeon/lib/firebase_options.dart
+**/google-services.json
+**/GoogleService-Info.plist
+**/firebase_app_id_file.json
+**/serviceAccount*.json
+**/*service-account*.json
+**/*.keystore
+**/*.jks
+**/*.pem
+**/*.p12
+**/*.pfx
+.env
+.env.*
+*.secret
+secrets/
+**/key.properties
+.firebaserc
+firebase-debug.log

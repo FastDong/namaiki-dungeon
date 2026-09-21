@@ -1,0 +1,14 @@
+name: dungeon_core
+description: 마왕의 던전 - 규칙·시뮬레이터·상태 인코더·Q-테이블·배치 봇·학습기 (앱과 학습기가 공유하는 순수 Dart 패키지)
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  http: ^1.2.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^5.0.0
